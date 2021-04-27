@@ -1,0 +1,21 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    configmanagement.gke.io/cluster-name: minikube
+    configmanagement.gke.io/cluster-selector: selector-myminikube
+    configmanagement.gke.io/source-path: foo-corp/cluster/namespace-reader-clusterrole.yaml
+    configsync.gke.io/declared-fields: '{"f:metadata":{"f:annotations":{"f:configmanagement.gke.io/cluster-selector":{}}},"f:rules":{}}'
+  labels:
+    configsync.gke.io/declared-version: v1
+  name: namespace-reader
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+  - watch
+  - list

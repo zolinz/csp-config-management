@@ -1,0 +1,23 @@
+---
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  annotations:
+    configmanagement.gke.io/cluster-name: minikube
+    configmanagement.gke.io/source-path: foo-corp/cluster/pod-security-policy.yaml
+    configsync.gke.io/declared-fields: '{"f:spec":{"f:fsGroup":{"f:rule":{}},"f:privileged":{},"f:runAsUser":{"f:rule":{}},"f:seLinux":{"f:rule":{}},"f:supplementalGroups":{"f:rule":{}},"f:volumes":{}}}'
+  labels:
+    configsync.gke.io/declared-version: v1beta1
+  name: psp
+spec:
+  fsGroup:
+    rule: RunAsAny
+  privileged: false
+  runAsUser:
+    rule: RunAsAny
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  volumes:
+  - '*'

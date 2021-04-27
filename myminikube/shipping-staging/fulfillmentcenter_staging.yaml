@@ -1,0 +1,14 @@
+---
+apiVersion: foo-corp.com/v1
+kind: FulfillmentCenter
+metadata:
+  annotations:
+    configmanagement.gke.io/cluster-name: minikube
+    configmanagement.gke.io/source-path: foo-corp/namespaces/online/shipping-app-backend/shipping-staging/fulfillmentcenter.yaml
+    configsync.gke.io/declared-fields: '{"f:spec":{"f:address":{}}}'
+  labels:
+    configsync.gke.io/declared-version: v1
+  name: staging
+  namespace: shipping-staging
+spec:
+  address: 100 Main St.

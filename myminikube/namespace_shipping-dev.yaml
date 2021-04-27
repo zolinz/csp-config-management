@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    configmanagement.gke.io/cluster-name: minikube
+    configmanagement.gke.io/source-path: foo-corp/namespaces/online/shipping-app-backend/shipping-dev/namespace.yaml
+    configsync.gke.io/declared-fields: '{}'
+    hnc.x-k8s.io/managed-by: configmanagement.gke.io
+  labels:
+    configsync.gke.io/declared-version: v1
+    online.tree.hnc.x-k8s.io/depth: "2"
+    shipping-app-backend.tree.hnc.x-k8s.io/depth: "1"
+    shipping-dev.tree.hnc.x-k8s.io/depth: "0"
+  name: shipping-dev

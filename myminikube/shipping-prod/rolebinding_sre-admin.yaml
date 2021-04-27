@@ -1,0 +1,21 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    configmanagement.gke.io/cluster-name: minikube
+    configmanagement.gke.io/namespace-selector: sre-supported
+    configmanagement.gke.io/source-path: foo-corp/namespaces/sre-rolebinding.yaml
+    configsync.gke.io/declared-fields: '{"f:metadata":{"f:annotations":{"f:configmanagement.gke.io/namespace-selector":{}}},"f:roleRef":{"f:apiGroup":{},"f:kind":{},"f:name":{}},"f:subjects":{}}'
+  labels:
+    configsync.gke.io/declared-version: v1
+  name: sre-admin
+  namespace: shipping-prod
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: sre@foo-corp.com

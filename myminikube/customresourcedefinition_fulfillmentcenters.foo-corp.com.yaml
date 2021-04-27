@@ -1,0 +1,47 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    configmanagement.gke.io/cluster-name: minikube
+    configmanagement.gke.io/source-path: foo-corp/cluster/fulfillmentcenter-crd.yaml
+    configsync.gke.io/declared-fields: '{"f:spec":{"f:group":{},"f:names":{"f:kind":{},"f:plural":{},"f:singular":{}},"f:scope":{},"f:versions":{}}}'
+  labels:
+    configsync.gke.io/declared-version: v1
+  name: fulfillmentcenters.foo-corp.com
+spec:
+  group: foo-corp.com
+  names:
+    kind: FulfillmentCenter
+    plural: fulfillmentcenters
+    singular: fulfillmentcenter
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        properties:
+          spec:
+            properties:
+              address:
+                type: string
+            required:
+            - address
+            type: object
+        type: object
+    served: true
+    storage: false
+  - name: v2
+    schema:
+      openAPIV3Schema:
+        properties:
+          spec:
+            properties:
+              address:
+                type: string
+            required:
+            - address
+            type: object
+        type: object
+    served: true
+    storage: true
