@@ -4,7 +4,6 @@ kind: RoleBinding
 metadata:
   annotations:
     configmanagement.gke.io/cluster-name: minikube
-    configmanagement.gke.io/namespace-selector: sre-supported
     configmanagement.gke.io/source-path: foo-corp/namespaces/sre-rolebinding.yaml
     configsync.gke.io/declared-fields: '{"f:metadata":{"f:annotations":{"f:configmanagement.gke.io/namespace-selector":{}}},"f:roleRef":{"f:apiGroup":{},"f:kind":{},"f:name":{}},"f:subjects":{}}'
   labels:
