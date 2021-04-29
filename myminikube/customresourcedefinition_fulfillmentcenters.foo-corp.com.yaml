@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     configmanagement.gke.io/cluster-name: minikube
-    configmanagement.gke.io/source-path: foo-corp/cluster/fulfillmentcenter-crd.yaml
+    configmanagement.gke.io/source-path: foo-corp2/cluster/fulfillmentcenter-crd.yaml
     configsync.gke.io/declared-fields: '{"f:spec":{"f:group":{},"f:names":{"f:kind":{},"f:plural":{},"f:singular":{}},"f:scope":{},"f:versions":{}}}'
   labels:
     configsync.gke.io/declared-version: v1

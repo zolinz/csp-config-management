@@ -1,21 +1,20 @@
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: Role
 metadata:
   annotations:
     configmanagement.gke.io/cluster-name: minikube
     configmanagement.gke.io/cluster-selector: selector-myminikube
-    configmanagement.gke.io/source-path: foo-corp/cluster/namespace-reader-clusterrole.yaml
+    configmanagement.gke.io/source-path: foo-corp2/namespaces/zoli-test/job-creator.yaml
     configsync.gke.io/declared-fields: '{"f:metadata":{"f:annotations":{"f:configmanagement.gke.io/cluster-selector":{}}},"f:rules":{}}'
   labels:
     configsync.gke.io/declared-version: v1
-  name: namespace-reader
+  name: job-creator
+  namespace: zoli-test
 rules:
 - apiGroups:
-  - ""
+  - batch/v1
   resources:
-  - namespaces
+  - jobs
   verbs:
-  - get
-  - watch
-  - list
+  - '*'
