@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    configmanagement.gke.io/cluster-name: minikube
+    configmanagement.gke.io/cluster-selector: selector-myminikube
+    configmanagement.gke.io/source-path: foo-corp/namespaces/zoli-test-2/zoli-2-namespace.yaml
+    configsync.gke.io/declared-fields: '{"f:metadata":{"f:annotations":{"f:configmanagement.gke.io/cluster-selector":{}}}}'
+    hnc.x-k8s.io/managed-by: configmanagement.gke.io
+  labels:
+    configsync.gke.io/declared-version: v1
+    zoli-test-2.tree.hnc.x-k8s.io/depth: "0"
+  name: zoli-test-2
